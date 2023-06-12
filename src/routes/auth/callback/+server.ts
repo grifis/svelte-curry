@@ -3,7 +3,6 @@ import { redirect } from '@sveltejs/kit'
 
 export const GET = async ({ url, locals: { supabase } }) => {
   const code = url.searchParams.get('code')
-  console.log(code);
   if (code) {
     // await supabase.auth.exchangeCodeForSession(code)
     const { error } = await supabase.auth.exchangeCodeForSession(code)
@@ -12,6 +11,5 @@ export const GET = async ({ url, locals: { supabase } }) => {
     }
   }
 
-  console.log('throw');
   throw redirect(303, '/account')
 }
