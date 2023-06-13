@@ -12,7 +12,14 @@
 
 <div class="row flex-center flex">
 	<div class="col-6 form-widget">
-		<a href="/signin">サインインはこちら</a>
-		<a href="/signup">ユーザー登録はこちら</a>
+		<Auth
+			supabaseClient={data.supabase}
+			view="sign_up"
+			providers={['github']}
+			redirectTo={`${data.url}/auth/callback`}
+			showLinks={false}
+			appearance={{ theme: ThemeSupa, style: { input: 'color: #fff' } }}
+			additionalData={{ app: 'supabase-auth-ui' }}
+		/>
 	</div>
 </div>
