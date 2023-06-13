@@ -30,7 +30,8 @@ export const actions = {
 				description
 			}
 		});
-		return { event };
+		throw redirect(303, '/events');
+		// return { event };
 	},
 
 	update: async ({ request, locals: { supabase, getSession } }) => {
